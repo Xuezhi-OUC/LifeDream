@@ -5,15 +5,18 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../src/hal_entry.c \
-../src/hal_warmstart.c 
+../src/hal_warmstart.c \
+../src/spi_comm.c 
 
 C_DEPS += \
 ./src/hal_entry.d \
-./src/hal_warmstart.d 
+./src/hal_warmstart.d \
+./src/spi_comm.d 
 
 OBJS += \
 ./src/hal_entry.o \
-./src/hal_warmstart.o 
+./src/hal_warmstart.o \
+./src/spi_comm.o 
 
 SREC += \
 LifeDream.srec 

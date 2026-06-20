@@ -1,4 +1,4 @@
-src/hal_entry.o: ../src/hal_entry.c \
+src/spi_comm.o: ../src/spi_comm.c ../src/spi_comm.h \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_gen/hal_data.h \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/bsp_api.h \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/fsp_common_api.h \
@@ -73,8 +73,8 @@ src/hal_entry.o: ../src/hal_entry.c \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_uart_api.h \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/r_sci_b_uart_cfg.h \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_sci_b_spi.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_spi_api.h \
- ../src/spi_comm.h
+ C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_spi_api.h
+../src/spi_comm.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_gen/hal_data.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/bsp_api.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/fsp_common_api.h:
@@ -150,4 +150,3 @@ C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_uart_api.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/r_sci_b_uart_cfg.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_sci_b_spi.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_spi_api.h:
-../src/spi_comm.h:

@@ -155,6 +155,11 @@
     "file": "C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/src/hal_warmstart.c"
   },
   {
+    "directory": "C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/Debug",
+    "command": "\"C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/arm-none-eabi-gcc.exe\" -mthumb -mfloat-abi\u003dhard -mcpu\u003dcortex-m85+nopacbti -O2 -fmessage-length\u003d0 -fsigned-char -ffunction-sections -fdata-sections -fno-strict-aliasing -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -D_RENESAS_RA_ -D_RA_CORE\u003dCPU0 -D_RA_ORDINAL\u003d1 -IC:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/bsp -I. -IC:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_gen -IC:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg -IC:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/src -IC:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc -IC:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api -IC:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances -IC:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/arm/CMSIS_6/CMSIS/Core/Include -std\u003dc99 -Wno-stringop-overflow -Wno-format-truncation -flax-vector-conversions --param\u003dmin-pagesize\u003d0 -c -o C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/Debug/src/spi_comm.o -x c C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/src/spi_comm.c",
+    "file": "C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/src/spi_comm.c"
+  },
+  {
     "directory": "C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream",
     "command": "clang -I \"${workspace_loc:/${ProjName}}/script\" -I\"C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/Debug\" -I\"C:\\Users\\32894\\Desktop\\RuiSa\\WorkSpace\\LifeDream\\Debug\" -ferror-limit\u003d30",
     "file": "C:\\Users\\32894\\Desktop\\RuiSa\\WorkSpace\\LifeDream\\Debug\\fsp_gen.ld"
