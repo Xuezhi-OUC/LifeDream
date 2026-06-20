@@ -18,10 +18,6 @@
 #include <stdbool.h>
 #include "ov2640_regs.h"
 
-#ifndef DRAM_ATTR
-#define DRAM_ATTR
-#endif
-
 typedef enum {
     OV2640_MODE_UXGA, OV2640_MODE_SVGA, OV2640_MODE_CIF, OV2640_MODE_MAX
 } ov2640_sensor_mode_t;
@@ -51,7 +47,7 @@ typedef struct {
         uint16_t max_y;
 } ov2640_ratio_settings_t;
 
-static const DRAM_ATTR ov2640_ratio_settings_t ratio_table[] = {
+static const ov2640_ratio_settings_t ratio_table[] = {
     // ox,  oy,   mx,   my
     {   0,   0, 1600, 1200 }, //4x3
     {   8,  72, 1584, 1056 }, //3x2
@@ -65,7 +61,7 @@ static const DRAM_ATTR ov2640_ratio_settings_t ratio_table[] = {
 };
 
 // 30fps@24MHz
-const DRAM_ATTR uint8_t ov2640_settings_cif[][2] = {
+const uint8_t ov2640_settings_cif[][2] = {
     {BANK_SEL, BANK_DSP},
     {0x2c, 0xff},
     {0x2e, 0xdf},
@@ -226,7 +222,7 @@ const DRAM_ATTR uint8_t ov2640_settings_cif[][2] = {
     {0, 0}
 };
 
-const DRAM_ATTR uint8_t ov2640_settings_to_cif[][2] = {
+const uint8_t ov2640_settings_to_cif[][2] = {
     {BANK_SEL, BANK_SENSOR},
     {COM7, COM7_RES_CIF},
 
@@ -277,7 +273,7 @@ const DRAM_ATTR uint8_t ov2640_settings_to_cif[][2] = {
     {0, 0}
 };
 
-const DRAM_ATTR uint8_t ov2640_settings_to_svga[][2] = {
+const uint8_t ov2640_settings_to_svga[][2] = {
     {BANK_SEL, BANK_SENSOR},
     {COM7, COM7_RES_SVGA},
 
@@ -330,7 +326,7 @@ const DRAM_ATTR uint8_t ov2640_settings_to_svga[][2] = {
     {0, 0}
 };
 
-const DRAM_ATTR uint8_t ov2640_settings_to_uxga[][2] = {
+const uint8_t ov2640_settings_to_uxga[][2] = {
     {BANK_SEL, BANK_SENSOR},
     {COM7, COM7_RES_UXGA},
 
@@ -382,7 +378,7 @@ const DRAM_ATTR uint8_t ov2640_settings_to_uxga[][2] = {
     {0, 0}
 };
 
-const DRAM_ATTR uint8_t ov2640_settings_jpeg3[][2] = {
+const uint8_t ov2640_settings_jpeg3[][2] = {
     {BANK_SEL, BANK_DSP},
     {RESET, RESET_JPEG | RESET_DVP},
     {IMAGE_MODE, IMAGE_MODE_JPEG_EN | IMAGE_MODE_HREF_VSYNC},

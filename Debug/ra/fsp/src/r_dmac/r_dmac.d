@@ -1,5 +1,5 @@
-src/hal_entry.o: ../src/hal_entry.c \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_gen/hal_data.h \
+ra/fsp/src/r_dmac/r_dmac.o: ../ra/fsp/src/r_dmac/r_dmac.c \
+ C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_dmac.h \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/bsp_api.h \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/fsp_common_api.h \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/fsp_version.h \
@@ -56,28 +56,10 @@ src/hal_entry.o: ../src/hal_entry.c \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/src/bsp/mcu/all/bsp_compiler_support.h \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/src/bsp/mcu/all/bsp_delay.h \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/src/bsp/mcu/all/bsp_mcu_api.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_gen/common_data.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_ioport.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_ioport_api.h \
+ C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_transfer_api.h \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/bsp_api.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/r_ioport_cfg.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/bsp/bsp_pin_cfg.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_dmac.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_transfer_api.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_iic_master.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/r_iic_master_cfg.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_i2c_master_api.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_transfer_api.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_capture_api.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_ceu.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_ceu.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_sci_b_uart.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_uart_api.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/r_sci_b_uart_cfg.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_sci_b_spi.h \
- C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_spi_api.h \
- ../src/spi_comm.h ../src/ov2640.h
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_gen/hal_data.h:
+ C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/r_dmac_cfg.h
+C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_dmac.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/bsp_api.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/fsp_common_api.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/fsp_version.h:
@@ -134,25 +116,6 @@ C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/fsp_common_api.h
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/src/bsp/mcu/all/bsp_compiler_support.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/src/bsp/mcu/all/bsp_delay.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/src/bsp/mcu/all/bsp_mcu_api.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_gen/common_data.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_ioport.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_ioport_api.h:
+C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_transfer_api.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/bsp_api.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/r_ioport_cfg.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/bsp/bsp_pin_cfg.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_dmac.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_transfer_api.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_iic_master.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/r_iic_master_cfg.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_i2c_master_api.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_transfer_api.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_capture_api.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_ceu.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_ceu.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_sci_b_uart.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_uart_api.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/r_sci_b_uart_cfg.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_sci_b_spi.h:
-C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_spi_api.h:
-../src/spi_comm.h:
-../src/ov2640.h:
+C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/r_dmac_cfg.h:

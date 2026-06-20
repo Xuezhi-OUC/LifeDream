@@ -1,5 +1,33 @@
 /* generated HAL source file - do not edit */
 #include "hal_data.h"
+
+dmac_instance_ctrl_t g_transfer0_ctrl;
+transfer_info_t g_transfer0_info =
+{ .transfer_settings_word_b.dest_addr_mode = TRANSFER_ADDR_MODE_FIXED,
+  .transfer_settings_word_b.repeat_area = TRANSFER_REPEAT_AREA_SOURCE,
+  .transfer_settings_word_b.irq = TRANSFER_IRQ_END,
+  .transfer_settings_word_b.chain_mode = TRANSFER_CHAIN_MODE_DISABLED,
+  .transfer_settings_word_b.src_addr_mode = TRANSFER_ADDR_MODE_FIXED,
+  .transfer_settings_word_b.size = TRANSFER_SIZE_4_BYTE,
+  .transfer_settings_word_b.mode = TRANSFER_MODE_NORMAL,
+  .p_dest = (void*) NULL,
+  .p_src = (void const*) NULL,
+  .num_blocks = 0,
+  .length = 1, };
+const dmac_extended_cfg_t g_transfer0_extend =
+{ .offset = 1, .src_buffer_size = 1,
+#if defined(VECTOR_NUMBER_DMAC0_INT)
+    .irq                 = VECTOR_NUMBER_DMAC0_INT,
+#else
+  .irq = FSP_INVALID_VECTOR,
+#endif
+  .ipl = (BSP_IRQ_DISABLED),
+  .channel = 0, .p_callback = NULL, .p_context = NULL, .activation_source = ELC_EVENT_NONE, };
+const transfer_cfg_t g_transfer0_cfg =
+{ .p_info = &g_transfer0_info, .p_extend = &g_transfer0_extend, };
+/* Instance structure to use this module. */
+const transfer_instance_t g_transfer0 =
+{ .p_ctrl = &g_transfer0_ctrl, .p_cfg = &g_transfer0_cfg, .p_api = &g_transfer_on_dmac };
 iic_master_instance_ctrl_t g_i2c_master0_ctrl;
 const iic_master_extended_cfg_t g_i2c_master0_extend =
 { .timeout_mode = IIC_MASTER_TIMEOUT_MODE_SHORT,
@@ -11,7 +39,7 @@ const iic_master_extended_cfg_t g_i2c_master0_extend =
   .clock_settings.sddl_value = 0,
   .clock_settings.dlcs_value = 0, };
 const i2c_master_cfg_t g_i2c_master0_cfg =
-{ .channel = 0, .rate = I2C_MASTER_RATE_STANDARD, .slave = 0x00, .addr_mode = I2C_MASTER_ADDR_MODE_7BIT,
+{ .channel = 0, .rate = I2C_MASTER_RATE_STANDARD, .slave = 0x30, .addr_mode = I2C_MASTER_ADDR_MODE_7BIT,
 #define RA_NOT_DEFINED (1)
 #if (RA_NOT_DEFINED == RA_NOT_DEFINED)
   .p_transfer_tx = NULL,
@@ -24,7 +52,7 @@ const i2c_master_cfg_t g_i2c_master0_cfg =
                 .p_transfer_rx       = &RA_NOT_DEFINED,
 #endif
 #undef RA_NOT_DEFINED
-  .p_callback = NULL,
+  .p_callback = iic_callback,
   .p_context = NULL,
 #if defined(VECTOR_NUMBER_IIC0_RXI)
     .rxi_irq             = VECTOR_NUMBER_IIC0_RXI,

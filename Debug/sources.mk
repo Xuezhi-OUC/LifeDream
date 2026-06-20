@@ -58,6 +58,7 @@ ra/fsp/src/bsp/cmsis/Device/RENESAS/Source \
 ra/fsp/src/bsp/mcu/all \
 ra/fsp/src/bsp/mcu/ra8p1 \
 ra/fsp/src/r_ceu \
+ra/fsp/src/r_dmac \
 ra/fsp/src/r_iic_master \
 ra/fsp/src/r_ioport \
 ra/fsp/src/r_sci_b_spi \

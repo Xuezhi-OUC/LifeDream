@@ -1,0 +1,1 @@
+- [OV2640 硬件引脚要求](ov2640_hw_pins.md) — RESET 必须高电平，PWDN 必须低电平

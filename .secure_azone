@@ -185,6 +185,7 @@
         </peripheral>
         <peripheral name="CEU.CPU0" security="s"/>
         <peripheral name="IIC0.CPU0" group="IIC" security="s"/>
+        <peripheral name="DMA_DMAC0.CPU0" group="DMA_DMAC" security="s"/>
         <peripheral name="ICU.CPU0">
             <slot name="IRQ0.CPU0" secure="true"/>
             <slot name="IRQ1.CPU0" secure="true"/>

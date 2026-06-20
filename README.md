@@ -29,15 +29,16 @@
 
 ## 项目概述
 
-本项目基于瑞萨 **RA8P1** 高性能微控制器（ARM Cortex-M85），围绕瑞萨 2026 全国大学生电子设计竞赛展开。项目已完成 SPI 主从通信协议的实现与调试，通过 SPI 接口以 1 Hz 频率向从机发送正弦波数据，并通过 UART 输出调试信息。此外，已完成 OV2640 摄像头（通过 CEU 接口）的驱动移植准备工作。
+本项目基于瑞萨 **RA8P1** 高性能微控制器（ARM Cortex-M85），围绕瑞萨 2026 全国大学生电子设计竞赛展开。项目已完成 OV2640 摄像头 I2C 驱动移植与 ESP32 SPI 主从通信，通过 I2C 对 OV2640 进行硬件复位和寄存器配置，读取芯片 ID 验证通信正常后将检测结果通过 SPI 协议帧发送给 ESP32 从机显示。
 
 ### 当前里程碑
 
 - [x] SPI 主站通信（7.8125 MHz, Mode 0）
-- [x] 1 Hz 正弦波数据生成与发送
-- [x] UART 调试输出（115200 baud）
+- [x] OV2640 摄像头 I2C 驱动初始化（硬件复位 + PID 读取）
+- [x] OV2640 → ESP32 SPI 数据帧传输
 - [x] SPI 协议文档 v1.0
-- [ ] OV2640 摄像头驱动集成（进行中）
+- [x] I2C 回调错误保护
+- [ ] OV2640 完整寄存器配置（输出图像）
 - [ ] CEU 图像采集与处理
 - [ ] 上位机通信
 
@@ -70,6 +71,8 @@
 
 | 引脚 | 功能 | 说明 |
 |---|---|---|
+| P1.09 | DO | OV2640 PWDN（LOW=正常，HIGH=掉电） |
+| P7.09 | DO | OV2640 RESET（脉冲复位） |
 | P1.10 | DO | 蓝色 LED 控制 |
 | P6.00 | DO | 板载蓝色 LED（原 SPI CS，已废弃） |
 | P6.01 | SCK | SPI 时钟（SCI SPI0） |
@@ -88,7 +91,13 @@
 ```
 ┌─────────────────────────────────────┐
 │          hal_entry.c                │  ← 用户应用入口
-│  正弦波生成 + SPI 发送 + UART 日志   │
+│  OV2640 初始化 + SPI 发送检测结果    │
+└──────────┬──────────────────────────┘
+           │
+┌──────────▼──────────────────────────┐
+│          spi_comm.c                 │  ← SPI 协议封装层
+│  SOF/CMD/LEN/PAYLOAD/CRC 组帧       │
+│  CS 时序 + writeRead 全双工         │
 └──────────┬──────────────────────────┘
            │
 ┌──────────▼──────────────────────────┐
@@ -113,14 +122,11 @@
 
 ```
 系统上电 → BSP 初始化 → 外设打开 (UART/SPI)
-         → 进入主循环:
-             1. 计算 sin(angle) → 0~255
-             2. 组帧 (SOF + CMD + LEN + X + Y + CRC)
-             3. 闪烁 LED (50 ms)
-             4. 拉低 CS → SPI 发送 → 拉高 CS
-             5. UART 打印正弦数据
-             6. angle += 10°
-             7. 等待 1 秒
+         → OV2640 硬件复位 (PWDN→LOW, RESET→脉冲)
+         → 打开 I2C → 读取 PID (0x26) → I2C 校验
+         → 组帧 (PID_H + PID_L + result + reserved)
+         → SPI 发送 4 字节检测结果给 ESP32
+         → LED 心跳闪烁 (1 Hz)
 ```
 
 ---
@@ -131,7 +137,13 @@
 LifeDream/
 ├── src/                      # 用户应用源代码
 │   ├── hal_entry.c           # 主程序入口
-│   └── hal_warmstart.c       # BSP 热启动处理
+│   ├── hal_warmstart.c       # BSP 热启动处理
+│   ├── ov2640.c              # OV2640 I2C 驱动 (读写/复位/初始化)
+│   ├── ov2640.h              # OV2640 驱动头文件
+│   ├── ov2640_regs.h         # OV2640 寄存器定义
+│   ├── ov2640_settings.h     # OV2640 初始化配置数组
+│   ├── spi_comm.c            # SPI 协议封装 (组帧/CS时序/CRC)
+│   └── spi_comm.h            # SPI 通信接口声明
 │
 ├── ra_gen/                   # FSP 生成代码 (请勿手动编辑)
 │   ├── main.c                # main() 入口 → 调用 hal_entry()
@@ -165,7 +177,8 @@ LifeDream/
 ├── docs/
 │   ├── SPI_Protocol.md       # SPI 通信协议规范 v1.0
 │   ├── SPI_Test_Log.md       # SPI 调试日志
-│   └── ov2640_CODE_REF.txt   # OV2640 驱动移植参考
+│   ├── ov2640_CODE_REF.txt   # OV2640 驱动移植参考
+│   └── ov2640_iic_esp32_spi_log.md  # OV2640 I2C + ESP32 SPI 调试日志
 │
 ├── Debug/                    # 构建输出
 │   ├── LifeDream.elf         # 可执行文件
@@ -224,8 +237,11 @@ LifeDream/
 |---|---|
 | **模式** | 主模式 (Standard) |
 | **速率** | ~100 kHz |
+| **从机地址** | 0x30 (OV2640 7-bit) |
 | **地址模式** | 7 位 |
-| **用途** | OV2640 摄像头初始化 (SCCB 协议) |
+| **用途** | OV2640 摄像头初始化与寄存器配置 |
+
+> OV2640 上电时序要求：PWDN=0 退出掉电 → RESET 脉冲 (10ms LOW → HIGH) → 等待 20ms → I2C 通信
 
 ### CEU (Capture Engine Unit)
 
@@ -240,28 +256,24 @@ LifeDream/
 
 ## 核心功能
 
-### 正弦波生成与 SPI 发送
+### OV2640 摄像头检测与 SPI 上报
 
-`hal_entry.c` 中实现了一个 1 Hz 正弦波生成器：
+`hal_entry.c` 主流程：
 
-```c
-#define ANGLE_STEP   10        // 步进角度
-#define SINE_SCALE   127       // 幅值缩放 (0~127 → 映射到 0~255)
-#define SINE_OFFSET  128       // 直流偏置
+1. 硬件引脚初始化：PWDN(LOW) + RESET(脉冲) 确保 OV2640 退出复位
+2. I2C 连接测试：读取 PID 寄存器 (0x0A)，验证产品 ID = 0x26
+3. SPI 发送 4 字节检测结果帧给 ESP32：
 
-uint8_t y = (uint8_t)(sin(angle * M_PI / 180.0) * SINE_SCALE + SINE_OFFSET);
-```
+| 字节 | 字段 | 说明 |
+|---|---|---|
+| 0 | PID_H | OV2640 产品 ID 高字节 (应为 0x26) |
+| 1 | PID_L | 产品 ID 低字节 |
+| 2 | result | 检测标志 (1=检测到, 0=未检测到) |
+| 3 | reserved | 保留 |
 
-生成数据通过以下协议帧发送：
+帧封装格式：`SOF(0xA5) + CMD(0x02) + LEN(0x04) + PAYLOAD(4B) + CRC(1B)`
 
-| 字节 | 字段 | 值 | 说明 |
-|---|---|---|---|
-| 0 | SOF | 0xA5 | 帧起始标识 |
-| 1 | CMD | 0x02 | DATA_WRITE 命令 |
-| 2 | LEN | 0x02 | 有效数据长度 |
-| 3 | X | angle | 角度索引 |
-| 4 | Y | sin 值 | 正弦计算结果 (0~255) |
-| 5 | CRC | XOR | 校验和 (Byte0 ^ Byte1 ^ ... ^ Byte4) |
+详见 `docs/ov2640_iic_esp32_spi_log.md`。|
 
 ---
 
@@ -350,13 +362,13 @@ make -j$(nproc)
 ### 已知问题
 
 1. **P6.00 引脚复用冲突** — 默认配置为 SCI 外设功能，导致无法作为 GPIO CS。已通过切换至 P6.04 解决。
-2. **OV2640 驱动未集成** — FSP 配置中已启用 CEU 和 I2C，但摄像头控制代码尚未移植到 `src/` 中。
+2. **OV2640 寄存器配置未完成** — I2C 通信已验证 (PID=0x26)，但完整的初始化和画面配置尚未下发。
 
 ### LED 指示
 
 | LED | 引脚 | 行为 |
 |---|---|---|
-| 蓝色 LED | P1.10 | SPI 发送数据时闪烁 50 ms |
+| 蓝色 LED | P1.10 | 系统运行后 1 Hz 心跳闪烁 (50ms ON, 950ms OFF) |
 
 ---
 
@@ -368,6 +380,7 @@ make -j$(nproc)
 - [ARM Cortex-M85 技术参考手册](https://developer.arm.com/documentation/102254)
 - [CMSIS v6 文档](https://arm-software.github.io/CMSIS_6/latest/)
 - [OV2640 数据手册](https://www.ovt.com/products/ov2640/)
+- [OV2640 I2C + ESP32 SPI 调试日志](docs/ov2640_iic_esp32_spi_log.md)
 
 ---
 

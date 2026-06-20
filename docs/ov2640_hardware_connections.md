@@ -41,8 +41,8 @@
 | MCU 引脚 | 信号 | OV2640 | 当前电平 | 要求 |
 |----------|------|--------|----------|------|
 | 不需要，有晶振了 | / | / | — | **已经提供 6~27MHz 时钟** (推荐 24MHz)，否则 SCCB 不响应 |
-| P7.09 | OV_PWDN | OV_PWDN | 输出 LOW | LOW = 正常工作 / HIGH = 掉电 |
-| P1.09 | OV_RESET | OV_RESET | 输出 LOW | LOW = 复位 / HIGH = 正常 (需先脉冲复位再拉高) |
+| P1.09 | OV_PWDN | OV_PWDN | 输出 LOW | LOW = 正常工作 / HIGH = 掉电 |
+| P7.09 | OV_RESET | OV_RESET | 输出 LOW | LOW = 复位 / HIGH = 正常 (需先脉冲复位再拉高) |
 
 ---
 

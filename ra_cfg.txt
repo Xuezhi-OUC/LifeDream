@@ -363,7 +363,7 @@ FSP Configuration
       P106 N6 OSPI0_OM_0_RESET OSPI_RESET H None "Peripheral mode" - - "ADC1(Digital): ADST1; AGT0: AGTOB0; ESWM_GMII/MII: ET1_LINKSTA; ESWM_RGMII1: ET1_LINKSTA; ESWM_RMII1: ET1_LINKSTA; GPT8: GTIOC8B; GPT_OPS: GTOWLO; IRQ: IRQ16; OSPI0: OM_0_RESET; SCI8: CTS8; SPI1: SSLB3; ULPT1: ULPTEE1-DS" "See SW4 in manual" IO - - 
       P107 N5 GPIO ETHERNET_MDINT - IRQ31 "Input mode" - - "ADC0(Digital): ADST0; AGT0: AGTOA0; ESWM_GMII/MII: ET1_INT; ESWM_RGMII1: ET1_INT; ESWM_RMII1: ET1_INT; GPT8: GTIOC8A; GPT_OPS: GTOWUP; IRQ: IRQ31; OSPI0: OM_0_CS0; SCI4: CTS4" - IO - - 
       P108 D8 - J2_30 - - Disabled - - "GPT10: GTIOC10B; IRQ: IRQ24; SDHI0: SD0DAT6" "Enable when connected" None - - 
-      P109 D7 GPIO I3C_SDA_PU M - "Output mode (Initial High)" - - "GPT10: GTIOC10A; IRQ: IRQ23; SDHI0: SD0DAT5" "Enable I3C_SEL_L to use" IO - - 
+      P109 D7 GPIO OV_PWDN M - "Output mode (Initial High)" - - "GPT10: GTIOC10A; IRQ: IRQ23; SDHI0: SD0DAT5" "Enable I3C_SEL_L to use" IO - - 
       P110 C8 GPIO USER_LED L - "Output mode (Initial Low)" - - "GPT9: GTIOC9B; IRQ: IRQ20; SDHI0: SD0DAT4" "Enable when connected" IO - - 
       P111 E8 GPIO MIPI_INT - IRQ19 "Input mode" - - "GPT9: GTIOC9A; IRQ: IRQ19; SDHI0: SD0DAT3" "See SW4 in manual" IO - - 
       P112 A4 SDRAM_DQ3 SDRAM_DQ3 H None "Peripheral mode" - - "ADC0(Digital): ADST0; BUS: D3; GLCDC: LCD_DATA10; GPT3: GTIOC3B; GPT_POEGA: GTETRGA; IRQ: IRQ27; SCI0: TXD0; SDHI0: SD0DAT4; SDRAM: DQ3; SPI0: SSLA2; SSIE0: SSIBCK0; ULPT0: ULPTOB0-DS" - IO - - 
@@ -452,7 +452,7 @@ FSP Configuration
       P706 E17 - - - - Disabled - - "AGT0: AGTIO0; CEU: VIO_D10; ESWM_GMII/MII0: ET0_GTX_CLK; ESWM_RGMII0: RGMII0_TXC; ETHPHYCLK: ETHPHYCLK; GPT2: GTCPPO2; IRQ: IRQ7; PDM0: PDMDAT0; SCI1: RXD1; USB HS: USBHS_OVRCURB-DS" - None - - 
       P707 F16 GLCDC_LCD_DATA18 PARLCD_D18R2 H None "Peripheral mode" - - "CEU: VIO_D11; ESWM_GMII/MII0: ET0_TX_ER; ETHPHYCLK: ETHPHYCLK; GLCDC: LCD_DATA18; GPT3: GTCPPO3; IRQ: IRQ8; PDM1: PDMDAT1; SCI1: TXD1; USB HS: USBHS_OVRCURA-DS" - IO - - 
       P708 N12 CEU_VIO_VD ETHERNET_RST L None "Peripheral mode" - - "BUS: BC1; BUS: WR1; CAC: CACREF; CEU: VIO_VD; ESWM_GMII/MII: ET0_MDC; ESWM_RGMII0: ET0_MDC; ESWM_RMII0: ET0_MDC; GPT6: GTCPPO6; IIC2: SDA2; IRQ: IRQ11; SCI4: DE4; SCI4: SCK4; SPI1: MOSI1; SSIE: AUDIO_CLK" - I - - 
-      P709 P16 GPIO CAMERA_RESET M - "Output mode (Initial Low)" - - "BUS: CS4; CEU: VIO_D13; ESWM_GMII/MII: ET0_MDIO; ESWM_RGMII0: ET0_MDIO; ESWM_RMII0: ET0_MDIO; GPT5: GTCPPO5; IIC2: SCL2; IRQ: IRQ10; SCI4: CTS_RTS4; SCI4: DE4; SPI1: MISO1" - IO - - 
+      P709 P16 GPIO OV_RESET M - "Output mode (Initial Low)" - - "BUS: CS4; CEU: VIO_D13; ESWM_GMII/MII: ET0_MDIO; ESWM_RGMII0: ET0_MDIO; ESWM_RMII0: ET0_MDIO; GPT5: GTCPPO5; IIC2: SCL2; IRQ: IRQ10; SCI4: CTS_RTS4; SCI4: DE4; SPI1: MISO1" - IO - - 
       P710 M13 GLCDC_LCD_EXTCLK PARLCD_EXTCLK H None "Peripheral mode" - - "BUS: CS5; CEU: VIO_D12; ESWM_GMII/MII: ET0_LINKSTA; ESWM_RGMII0: ET0_LINKSTA; ESWM_RMII0: ET0_LINKSTA; GLCDC: LCD_EXTCLK; GPT11: GTIOC11B; IRQ: IRQ17; SCI4: CTS4; SPI1: SSLB3" - I - - 
       P711 N15 GLCDC_LCD_DATA19 PARLCD_D19R3 H None "Peripheral mode" - - "AGT0: AGTEE0; ESWM_GMII/MII: GPTP0_PPS; ESWM_RGMII0: GPTP0_PPS; ESWM_RMII0: GPTP0_PPS; GLCDC: LCD_DATA19; GPT11: GTIOC11A; IRQ: IRQ3; SCI1: CTS_RTS1; SCI1: DE1; SPI1: SSLB2" - IO - - 
       P712 N13 GLCDC_LCD_DATA20 PARLCD_D20R4 H None "Peripheral mode" - - "AGT0: AGTOB0; ESWM_GMII/MII: GPTP1_CAPTURE; ESWM_RGMII1: GPTP1_CAPTURE; ESWM_RMII1: GPTP1_CAPTURE; GLCDC: LCD_DATA20; GPT2: GTIOC2B; IRQ: IRQ2; SCI1: CTS1; SPI1: SSLB1" - IO - - 
@@ -653,7 +653,7 @@ FSP Configuration
       P106 N6 - OSPI_RESET L None Disabled - - "ADC1(Digital): ADST1; AGT0: AGTOB0; ESWM_GMII/MII: ET1_LINKSTA; ESWM_RGMII1: ET1_LINKSTA; ESWM_RMII1: ET1_LINKSTA; GPT8: GTIOC8B; GPT_OPS: GTOWLO; IRQ: IRQ16; OSPI0: OM_0_RESET; SCI8: CTS8; SPI1: SSLB3; ULPT1: ULPTEE1-DS" "See SW4 in manual" IO - - 
       P107 N5 - ETHERNET_MDINT - None Disabled - - "ADC0(Digital): ADST0; AGT0: AGTOA0; ESWM_GMII/MII: ET1_INT; ESWM_RGMII1: ET1_INT; ESWM_RMII1: ET1_INT; GPT8: GTIOC8A; GPT_OPS: GTOWUP; IRQ: IRQ31; OSPI0: OM_0_CS0; SCI4: CTS4" - IO - - 
       P108 D8 - J2_30 - - Disabled - - "GPT10: GTIOC10B; IRQ: IRQ24; SDHI0: SD0DAT6" "Enable when connected" None - - 
-      P109 D7 - I3C_SDA_PU L - Disabled - - "GPT10: GTIOC10A; IRQ: IRQ23; SDHI0: SD0DAT5" "Enable I3C_SEL_L to use" IO - - 
+      P109 D7 - OV_PWDN L - Disabled - - "GPT10: GTIOC10A; IRQ: IRQ23; SDHI0: SD0DAT5" "Enable I3C_SEL_L to use" IO - - 
       P110 C8 - USER_LED L - Disabled - - "GPT9: GTIOC9B; IRQ: IRQ20; SDHI0: SD0DAT4" "Enable when connected" IO - - 
       P111 E8 - MIPI_INT - None Disabled - - "GPT9: GTIOC9A; IRQ: IRQ19; SDHI0: SD0DAT3" "See SW4 in manual" IO - - 
       P112 A4 - SDRAM_DQ3 L None Disabled - - "ADC0(Digital): ADST0; BUS: D3; GLCDC: LCD_DATA10; GPT3: GTIOC3B; GPT_POEGA: GTETRGA; IRQ: IRQ27; SCI0: TXD0; SDHI0: SD0DAT4; SDRAM: DQ3; SPI0: SSLA2; SSIE0: SSIBCK0; ULPT0: ULPTOB0-DS" - IO - - 
@@ -742,7 +742,7 @@ FSP Configuration
       P706 E17 - - - - Disabled - - "AGT0: AGTIO0; CEU: VIO_D10; ESWM_GMII/MII0: ET0_GTX_CLK; ESWM_RGMII0: RGMII0_TXC; ETHPHYCLK: ETHPHYCLK; GPT2: GTCPPO2; IRQ: IRQ7; PDM0: PDMDAT0; SCI1: RXD1; USB HS: USBHS_OVRCURB-DS" - None - - 
       P707 F16 - PARLCD_D18R2 L None Disabled - - "CEU: VIO_D11; ESWM_GMII/MII0: ET0_TX_ER; ETHPHYCLK: ETHPHYCLK; GLCDC: LCD_DATA18; GPT3: GTCPPO3; IRQ: IRQ8; PDM1: PDMDAT1; SCI1: TXD1; USB HS: USBHS_OVRCURA-DS" - IO - - 
       P708 N12 - ETHERNET_RST L None Disabled - - "BUS: BC1; BUS: WR1; CAC: CACREF; CEU: VIO_VD; ESWM_GMII/MII: ET0_MDC; ESWM_RGMII0: ET0_MDC; ESWM_RMII0: ET0_MDC; GPT6: GTCPPO6; IIC2: SDA2; IRQ: IRQ11; SCI4: DE4; SCI4: SCK4; SPI1: MOSI1; SSIE: AUDIO_CLK" - I - - 
-      P709 P16 - CAMERA_RESET L - Disabled - - "BUS: CS4; CEU: VIO_D13; ESWM_GMII/MII: ET0_MDIO; ESWM_RGMII0: ET0_MDIO; ESWM_RMII0: ET0_MDIO; GPT5: GTCPPO5; IIC2: SCL2; IRQ: IRQ10; SCI4: CTS_RTS4; SCI4: DE4; SPI1: MISO1" - IO - - 
+      P709 P16 - OV_RESET L - Disabled - - "BUS: CS4; CEU: VIO_D13; ESWM_GMII/MII: ET0_MDIO; ESWM_RGMII0: ET0_MDIO; ESWM_RMII0: ET0_MDIO; GPT5: GTCPPO5; IIC2: SCL2; IRQ: IRQ10; SCI4: CTS_RTS4; SCI4: DE4; SPI1: MISO1" - IO - - 
       P710 M13 - PARLCD_EXTCLK L None Disabled - - "BUS: CS5; CEU: VIO_D12; ESWM_GMII/MII: ET0_LINKSTA; ESWM_RGMII0: ET0_LINKSTA; ESWM_RMII0: ET0_LINKSTA; GLCDC: LCD_EXTCLK; GPT11: GTIOC11B; IRQ: IRQ17; SCI4: CTS4; SPI1: SSLB3" - I - - 
       P711 N15 - PARLCD_D19R3 L None Disabled - - "AGT0: AGTEE0; ESWM_GMII/MII: GPTP0_PPS; ESWM_RGMII0: GPTP0_PPS; ESWM_RMII0: GPTP0_PPS; GLCDC: LCD_DATA19; GPT11: GTIOC11A; IRQ: IRQ3; SCI1: CTS_RTS1; SCI1: DE1; SPI1: SSLB2" - IO - - 
       P712 N13 - PARLCD_D20R4 L None Disabled - - "AGT0: AGTOB0; ESWM_GMII/MII: GPTP1_CAPTURE; ESWM_RGMII1: GPTP1_CAPTURE; ESWM_RMII1: GPTP1_CAPTURE; GLCDC: LCD_DATA20; GPT2: GTIOC2B; IRQ: IRQ2; SCI1: CTS1; SPI1: SSLB1" - IO - - 
@@ -940,6 +940,9 @@ FSP Configuration
     DTC on Transmission and Reception: Disabled
     10-bit slave addressing: Disabled
     
+  Module "Transfer (r_dmac)"
+    Parameter Checking: Default (BSP)
+    
   HAL
     Instance "g_ioport I/O Port (r_ioport)"
       Name: g_ioport
@@ -1034,10 +1037,27 @@ FSP Configuration
       Rise Time (ns): 120
       Fall Time (ns): 120
       Duty Cycle (%): 50
-      Slave Address: 0x00
+      Slave Address: 0x30
       Address Mode: 7-Bit
       Timeout Mode: Short Mode
       Timeout during SCL Low: Enabled
-      Callback: NULL
+      Callback: iic_callback
       Interrupt Priority Level: Priority 12
+      
+    Instance "g_transfer0 Transfer (r_dmac) No ELC Trigger"
+      Name: g_transfer0
+      Channel: 0
+      Mode: Normal
+      Transfer Size: 4 Bytes
+      Destination Address Mode: Fixed
+      Source Address Mode: Fixed
+      Repeat Area (Unused in Normal Mode): Source
+      Number of Transfers: 1
+      Number of Blocks (Valid only in Repeat,Block or Repeat-Block Mode): 0
+      Activation Source: No ELC Trigger
+      Callback: NULL
+      Transfer End Interrupt Priority: Disabled
+      Interrupt Frequency: Interrupt after all transfers have completed
+      Offset value (Valid only when address mode is Offset addition): 1
+      Source Buffer Size: 1
       

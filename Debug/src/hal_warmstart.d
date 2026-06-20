@@ -62,6 +62,8 @@ src/hal_warmstart.o: ../src/hal_warmstart.c \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/bsp_api.h \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/r_ioport_cfg.h \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/bsp/bsp_pin_cfg.h \
+ C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_dmac.h \
+ C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_transfer_api.h \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_iic_master.h \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/r_iic_master_cfg.h \
  C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_i2c_master_api.h \
@@ -137,6 +139,8 @@ C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_ioport_api.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/bsp_api.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/r_ioport_cfg.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/bsp/bsp_pin_cfg.h:
+C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_dmac.h:
+C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_transfer_api.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/instances/r_iic_master.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra_cfg/fsp_cfg/r_iic_master_cfg.h:
 C:/Users/32894/Desktop/RuiSa/WorkSpace/LifeDream/ra/fsp/inc/api/r_i2c_master_api.h:
